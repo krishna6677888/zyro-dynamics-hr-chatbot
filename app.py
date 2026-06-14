@@ -14,8 +14,8 @@ st.write(
 
 # Initialize chat history
 
-if "messages" not in st.session_state:
-st.session_state.messages = []
+if some_condition:  # Line 17 (Whatever your if statement is)
+    st.session_state.messages = []  # Line 18 (Indented with 4 spaces or 1 tab)
 
 # Display chat history
 
