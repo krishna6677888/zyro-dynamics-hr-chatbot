@@ -29,26 +29,23 @@ question = st.chat_input("Ask an HR question")
 
 if question:
 
-    ```
+    
     st.session_state.messages.append(
-    {"role": "user", "content": question}
-)
+    {"role": "user", "content": question})
 
     with st.chat_message("user"):
     st.markdown(question)
 
-answer = (
+    answer = (
     "This is a demo HR assistant. "
     "Connect your RAG pipeline here to answer questions "
-    "from Zyro Dynamics policy documents."
-)
+    "from Zyro Dynamics policy documents.")
 
-with st.chat_message("assistant"):
+    with st.chat_message("assistant"):
     st.markdown(answer)
 
-st.session_state.messages.append(
-    {"role": "assistant", "content": answer}
-)
-```
+    st.session_state.messages.append(
+    {"role": "assistant", "content": answer})
+
 
 
