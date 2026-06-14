@@ -29,12 +29,12 @@ question = st.chat_input("Ask an HR question")
 
 if question:
 
-```
-st.session_state.messages.append(
+    ```
+    st.session_state.messages.append(
     {"role": "user", "content": question}
 )
 
-with st.chat_message("user"):
+    with st.chat_message("user"):
     st.markdown(question)
 
 answer = (
