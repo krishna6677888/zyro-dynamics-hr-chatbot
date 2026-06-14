@@ -20,8 +20,8 @@ if some_condition:  # Line 17 (Whatever your if statement is)
 # Display chat history
 
 for msg in st.session_state.messages:
-with st.chat_message(msg["role"]):
-st.markdown(msg["content"])
+    with st.chat_message(msg["role"]): #  Fixed: Indented inside the for loop
+        st.write(msg["content"]) #  This also needs to be indented inside the 'with' block
 
 # User input
 
