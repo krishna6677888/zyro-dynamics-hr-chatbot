@@ -12,12 +12,12 @@ st.write(
 "performance reviews, onboarding, travel, and more."
 )
 
-# Chat history
+# Initialize chat history
 
 if "messages" not in st.session_state:
 st.session_state.messages = []
 
-# Display previous messages
+# Display chat history
 
 for msg in st.session_state.messages:
 with st.chat_message(msg["role"]):
@@ -28,15 +28,15 @@ st.markdown(msg["content"])
 question = st.chat_input("Ask an HR question")
 
 if question:
-st.session_state.messages.append(
-{"role": "user", "content": question}
-)
 
 ```
+st.session_state.messages.append(
+    {"role": "user", "content": question}
+)
+
 with st.chat_message("user"):
     st.markdown(question)
 
-# Placeholder response
 answer = (
     "This is a demo HR assistant. "
     "Connect your RAG pipeline here to answer questions "
@@ -50,3 +50,5 @@ st.session_state.messages.append(
     {"role": "assistant", "content": answer}
 )
 ```
+
+
