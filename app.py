@@ -1,45 +1,72 @@
 import streamlit as st
 
-st.set_page_config(page_title="Zyro Dynamics HR Assistant", page_icon="🤖")
-st.title("🤖 Zyro Dynamics HR Assistant")
-
-st.write(
-    "Ask questions about Zyro Dynamics HR policies, leave, benefits, "
-    "performance reviews, onboarding, travel, and more."
+st.set_page_config(
+    page_title="Zyro Dynamics HR Help Desk",
+    page_icon="🤖",
+    layout="wide"
 )
 
-# Initialize chat history properly
+st.title("🤖 Zyro Dynamics HR Help Desk")
+
+st.markdown("""
+Welcome to the AI-powered HR Assistant for **Zyro Dynamics**.
+
+You can ask questions about:
+
+* Leave Policy
+* Work From Home Policy
+* Compensation & Benefits
+* Performance Reviews
+* Travel & Expense Policy
+* Employee Handbook
+* Onboarding & Separation
+* IT & Data Security
+* POSH Policy
+""")
+
+# Sidebar
+with st.sidebar:
+    st.header("About")
+    st.write(
+        "This chatbot is built using Retrieval-Augmented Generation (RAG) "
+        "to answer HR-related questions from Zyro Dynamics policy documents."
+    )
+
+# Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Display chat history
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
-        st.write(msg["content"])
+        st.markdown(msg["content"])
 
-# User input
-question = st.chat_input("Ask an HR question")
+# User Input
+question = st.chat_input("Ask an HR-related question...")
 
 if question:
     # 1. Add user message to history
-    st.session_state.messages.append({"role": "user", "content": question})
-    
-    # 2. Display user message in chat message container
+    st.session_state.messages.append(
+        {"role": "user", "content": question}
+    )
+
+    # 2. Display user message
     with st.chat_message("user"):
         st.markdown(question)
-        
-    # 3. Generate placeholder response
-    answer = (
-        "This is a demo HR assistant. "
-        "Connect your RAG pipeline here to answer questions "
-        "from Zyro Dynamics policy documents."
-    )
-    
-    # 4. Display assistant response in chat message container
+
+    # 3. Generate response string
+    answer = """
+I am the Zyro Dynamics HR Assistant.
+
+This Streamlit deployment is active. Connect your RAG pipeline
+to provide document-grounded HR answers with citations.
+"""
+
+    # 4. Display assistant response
     with st.chat_message("assistant"):
         st.markdown(answer)
-        
-    # 5. Add assistant message to history
-    st.session_state.messages.append({"role": "assistant", "content": answer})
 
+    # 5. Add assistant message to history
+    st.session_state.messages.append(
+        {"role": "assistant", "content": answer}
+    )
 
