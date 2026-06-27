@@ -5,8 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.chains import create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
+
 # If the above still fails, ensure you are using the latest structural patterns
 # documented for langchain-core and langchain-chains:
 from langchain.chains.retrieval import create_retrieval_chain
